@@ -1,0 +1,656 @@
+/* ============================================
+   Eagle Pocket — Liquid Glass Theme
+   ============================================ */
+
+/* ---------- Custom Properties ---------- */
+:root {
+  --bg-base: #080c18;
+  --glass-bg: rgba(255, 255, 255, 0.04);
+  --glass-bg-hover: rgba(255, 255, 255, 0.08);
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --glass-border-hover: rgba(255, 255, 255, 0.15);
+  --orb-blue: #2d5a8e;
+  --orb-gold: #d4a020;
+  --text-primary: #ffffff;
+  --text-secondary: rgba(255, 255, 255, 0.6);
+  --accent: #4a8ed4;
+  --content-width: 1170px;
+}
+
+/* ---------- Reset ---------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 62.5%;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  line-height: 1;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-size: 1.6rem;
+  background-color: var(--bg-base);
+  color: var(--text-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+h1 { font-size: 4rem; font-weight: 700; }
+h2 { font-size: 2.4rem; font-weight: 400; }
+h3 { font-size: 2rem; font-weight: 600; }
+
+a:link,
+a:hover,
+a:visited,
+a:active {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+
+/* ---------- Animated Background Orbs ---------- */
+
+.bg-orbs {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.5;
+}
+
+.orb-1 {
+  width: 600px;
+  height: 600px;
+  background: var(--orb-blue);
+  top: -10%;
+  left: -10%;
+  animation: orb-float-1 20s ease-in-out infinite;
+}
+
+.orb-2 {
+  width: 500px;
+  height: 500px;
+  background: var(--orb-gold);
+  top: 40%;
+  right: -15%;
+  animation: orb-float-2 25s ease-in-out infinite;
+}
+
+.orb-3 {
+  width: 400px;
+  height: 400px;
+  background: var(--orb-blue);
+  bottom: -10%;
+  left: 30%;
+  animation: orb-float-3 22s ease-in-out infinite;
+}
+
+@keyframes orb-float-1 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(100px, 80px) scale(1.1); }
+  66% { transform: translate(-50px, 120px) scale(0.95); }
+}
+
+@keyframes orb-float-2 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(-120px, -60px) scale(1.05); }
+  66% { transform: translate(60px, -100px) scale(0.9); }
+}
+
+@keyframes orb-float-3 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(80px, -70px) scale(1.1); }
+  66% { transform: translate(-100px, 40px) scale(0.95); }
+}
+
+
+/* ---------- Glass Nav ---------- */
+
+.glass-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background: rgba(8, 12, 24, 0.6);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--glass-border);
+}
+
+.nav-container {
+  max-width: var(--content-width);
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 64px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo a {
+  display: flex;
+}
+
+.headerIcon {
+  width: 36px;
+  height: 36px;
+  border-radius: 22.37%;
+  overflow: hidden;
+  display: block;
+}
+
+.headerName {
+  color: var(--text-primary);
+  font-weight: 600;
+  font-size: 1.6rem;
+  white-space: nowrap;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  gap: 28px;
+}
+
+nav ul li a:link,
+nav ul li a:visited {
+  color: var(--text-secondary);
+  font-size: 1.4rem;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+nav ul li a:hover,
+nav ul li a:active {
+  color: var(--text-primary);
+}
+
+
+/* ---------- Hero Section ---------- */
+
+.hero {
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding-top: 64px;
+}
+
+.hero-container {
+  max-width: var(--content-width);
+  margin: 0 auto;
+  padding: 60px 24px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+  width: 100%;
+}
+
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.hero-icon-wrapper {
+  position: relative;
+  margin-bottom: 32px;
+  width: 120px;
+  height: 120px;
+}
+
+.hero-icon-glow {
+  position: absolute;
+  width: 160px;
+  height: 160px;
+  background: var(--orb-blue);
+  border-radius: 32px;
+  filter: blur(40px);
+  opacity: 0.4;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.appIconLarge {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  display: block;
+  border-radius: 22.37%;
+  z-index: 1;
+}
+
+.appName {
+  color: var(--text-primary);
+  font-size: 4.8rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+
+.appPrice {
+  color: var(--text-secondary);
+  font-weight: 400;
+  font-size: 1.8rem;
+  margin-top: 12px;
+}
+
+.hero-tagline {
+  color: var(--text-secondary);
+  font-size: 2rem;
+  line-height: 1.6;
+  margin-top: 24px;
+  max-width: 480px;
+}
+
+.hero-actions {
+  margin-top: 36px;
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  filter: drop-shadow(0px 5px 10px rgba(0, 0, 0, 0.1)) drop-shadow(0px 1px 1px rgba(0, 0, 0, 0.2));
+}
+
+.appStore,
+.playStore {
+  height: 54px;
+  transition: transform 0.2s;
+}
+
+.appStore:hover,
+.playStore:hover {
+  transform: scale(1.05);
+}
+
+
+/* ---------- Phone Glass Frame ---------- */
+
+.hero-phone {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.phone-glass-frame {
+  position: relative;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: 40px;
+  padding: 16px;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3),
+              inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.phone-inner {
+  position: relative;
+  width: 280px;
+  background: #000;
+  border-radius: 28px;
+  overflow: hidden;
+}
+
+.iphoneScreen {
+  width: 280px;
+  display: block;
+}
+
+.videoContainer {
+  width: 280px;
+  height: 606px;
+}
+
+.videoContainer > video {
+  width: 280px;
+  height: 606px;
+}
+
+
+/* ---------- Features Section ---------- */
+
+.features-section {
+  position: relative;
+  z-index: 1;
+  padding: 80px 0 100px;
+}
+
+.features-container {
+  max-width: var(--content-width);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.glass-card {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: 20px;
+  padding: 36px 28px;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition: transform 0.3s, background 0.3s, border-color 0.3s, box-shadow 0.3s;
+}
+
+.glass-card:hover {
+  transform: translateY(-4px);
+  background: var(--glass-bg-hover);
+  border-color: var(--glass-border-hover);
+  box-shadow: 0 12px 40px rgba(45, 90, 142, 0.15);
+}
+
+.card-icon {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(74, 142, 212, 0.15);
+  border-radius: 12px;
+  margin-bottom: 20px;
+}
+
+.card-icon i {
+  font-size: 2rem;
+  color: var(--accent);
+}
+
+.glass-card h3 {
+  color: var(--text-primary);
+  margin-bottom: 12px;
+  font-size: 1.8rem;
+}
+
+.glass-card p {
+  color: var(--text-secondary);
+  line-height: 1.6;
+  font-size: 1.5rem;
+}
+
+
+/* ---------- Footer ---------- */
+
+.glass-footer {
+  position: relative;
+  z-index: 1;
+  border-top: 1px solid var(--glass-border);
+  padding: 60px 0;
+}
+
+.footer-container {
+  max-width: var(--content-width);
+  margin: 0 auto;
+  padding: 0 24px;
+  text-align: center;
+}
+
+.footer-social {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 28px;
+}
+
+.social-circle {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  transition: background 0.2s, border-color 0.2s;
+}
+
+.social-circle i {
+  color: var(--text-secondary);
+  font-size: 1.6rem;
+}
+
+.social-circle:hover {
+  background: var(--glass-bg-hover);
+  border-color: var(--glass-border-hover);
+}
+
+.social-circle:hover i {
+  color: var(--text-primary);
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  margin-bottom: 28px;
+  flex-wrap: wrap;
+}
+
+.footer-links a {
+  color: var(--text-secondary);
+  font-size: 1.4rem;
+  transition: color 0.2s;
+}
+
+.footer-links a:hover {
+  color: var(--text-primary);
+}
+
+.footer-credit {
+  color: rgba(255, 255, 255, 0.3);
+  font-size: 1.3rem;
+}
+
+
+/* ---------- Sub-page Styles ---------- */
+
+.page-wrapper {
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
+  padding-top: 96px;
+  padding-bottom: 80px;
+}
+
+.page-content {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 48px;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: 24px;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  color: var(--text-secondary);
+  font-size: 1.6rem;
+  line-height: 1.7;
+}
+
+.page-content h1,
+.page-content h2,
+.page-content h3,
+.page-content h4 {
+  color: var(--text-primary);
+  margin-top: 32px;
+  margin-bottom: 16px;
+}
+
+.page-content h1 {
+  font-size: 3.2rem;
+  margin-top: 0;
+}
+
+.page-content h2 {
+  font-size: 2.2rem;
+  font-weight: 600;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--glass-border);
+}
+
+.page-content h3 {
+  font-size: 1.8rem;
+}
+
+.page-content p {
+  margin-bottom: 16px;
+}
+
+.page-content a {
+  color: var(--accent);
+}
+
+.page-content strong {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.page-content ul,
+.page-content ol {
+  margin-bottom: 16px;
+  padding-left: 24px;
+}
+
+.page-content li {
+  margin-bottom: 8px;
+}
+
+.page-content hr {
+  border: none;
+  border-top: 1px solid var(--glass-border);
+  margin: 32px 0;
+}
+
+.page-content code {
+  background: rgba(255, 255, 255, 0.06);
+  color: #e0e0e0;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 1.4rem;
+}
+
+.page-content blockquote {
+  border-left: 3px solid var(--accent);
+  padding-left: 16px;
+  color: var(--text-secondary);
+  margin-bottom: 16px;
+}
+
+
+/* ---------- Responsive ---------- */
+
+@media only screen and (max-width: 992px) {
+  .hero-container {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 40px;
+  }
+
+  .hero-content {
+    align-items: center;
+  }
+
+  .hero-tagline {
+    max-width: 100%;
+  }
+
+  .hero-actions {
+    justify-content: center;
+  }
+
+  .features-grid {
+    grid-template-columns: 1fr;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .headerName {
+    display: none;
+  }
+
+  .appName {
+    font-size: 3.6rem;
+  }
+
+  .hero-tagline {
+    font-size: 1.7rem;
+  }
+
+  .phone-inner {
+    width: 240px;
+  }
+
+  .iphoneScreen {
+    width: 240px;
+  }
+
+  .videoContainer {
+    width: 240px;
+    height: 520px;
+  }
+
+  .videoContainer > video {
+    width: 240px;
+    height: 520px;
+  }
+
+  .page-content {
+    margin: 0 16px;
+    padding: 28px 20px;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .hero-actions {
+    flex-direction: column;
+  }
+
+  .appStore,
+  .playStore {
+    height: 48px;
+  }
+
+  .footer-links {
+    flex-direction: column;
+    gap: 12px;
+  }
+}
+
+
+/* ---------- Utility ---------- */
+
+.hidden {
+  display: none;
+}

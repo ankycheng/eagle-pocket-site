@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Eagle Pocket</title>
+    <meta name="description" content="Your Eagle library, always in your pocket.">
+
+    <!-- Icons -->
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Eagle Pocket">
+    <meta property="og:description" content="Your Eagle library, always in your pocket.">
+    <meta property="og:image" content="assets/appicon.png">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Eagle Pocket">
+    <meta name="twitter:description" content="Your Eagle library, always in your pocket.">
+    <meta name="twitter:image" content="assets/appicon.png">
+
+    <!-- Smart App Banner (uncomment after App Store launch) -->
+    <!-- <meta name="apple-itunes-app" content="app-id=6751750244"> -->
+
+    <!-- Inter Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!-- Animated Background Orbs -->
+    <div class="bg-orbs">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="orb orb-3"></div>
+    </div>
+
+    <!-- Glass Nav -->
+    <header class="glass-nav">
+        <div class="nav-container">
+            <div class="logo">
+                <img class="headerIcon" src="assets/appicon.png" alt="Eagle Pocket">
+                <p class="headerName">Eagle Pocket</p>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="support/">Support</a></li>
+                    <li><a href="privacypolicy/">Privacy</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="hero-icon-wrapper">
+                    <div class="hero-icon-glow"></div>
+                    <img class="appIconLarge" src="assets/appicon.png" alt="Eagle Pocket">
+                </div>
+                <h1 class="appName">Eagle Pocket</h1>
+                <h2 class="appPrice">Free</h2>
+                <p class="hero-tagline">Your Eagle library, always in your pocket.</p>
+                <!-- App Store link (uncomment after launch) -->
+                <!-- <div class="hero-actions">
+                    <a class="appStoreLink" href=""><img class="appStore" src="assets/appstore.png" alt="Download on the App Store"></a>
+                </div> -->
+            </div>
+            <div class="hero-phone">
+                <div class="phone-glass-frame">
+                    <div class="phone-inner">
+                        <img class="iphoneScreen" src="assets/screenshot/home.en.png" alt="Eagle Pocket Screenshot">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section class="features-section">
+        <div class="features-container">
+            <div class="features-grid">
+                <div class="glass-card">
+                    <div class="card-icon">
+                        <i class="fas fa-cloud"></i>
+                    </div>
+                    <h3>Access Anywhere</h3>
+                    <p>Open libraries from local storage, iCloud Drive, Google Drive, or network shares like a NAS.</p>
+                </div>
+                <div class="glass-card">
+                    <div class="card-icon">
+                        <i class="fas fa-edit"></i>
+                    </div>
+                    <h3>Read &amp; Write</h3>
+                    <p>Browse, tag, rate, and import photos directly into your Eagle library — full read and write support, not just a viewer.</p>
+                </div>
+                <div class="glass-card">
+                    <div class="card-icon">
+                        <i class="fas fa-sync-alt"></i>
+                    </div>
+                    <h3>Effortless Sync</h3>
+                    <p>Instantly see changes made on your computer, keeping your entire collection always up to date.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="glass-footer">
+        <div class="footer-container">
+            <div class="footer-social">
+                <a href="mailto:ankycheng@gmail.com" class="social-circle">
+                    <i class="fas fa-envelope"></i>
+                </a>
+            </div>
+            <div class="footer-links">
+                <a href="support/">Support</a>
+                <a href="privacypolicy/">Privacy Policy</a>
+            </div>
+            <p class="footer-credit">Made by Kai</p>
+        </div>
+    </footer>
+
+    <!-- Apple App Store API (uncomment after launch) -->
+    <!--
+    <script>
+    (function() {
+        var apiURL = 'https://itunes.apple.com/lookup?id=6751750244&country=us&callback=handleAppInfo';
+        window.handleAppInfo = function(json) {
+            if (json.results && json.results.length) {
+                var storeLink = document.querySelector('.appStoreLink');
+                if (storeLink && !storeLink.getAttribute('href')) {
+                    storeLink.setAttribute('href', json.results[0].trackViewUrl);
+                }
+            }
+        };
+        var s = document.createElement('script');
+        s.src = apiURL;
+        document.body.appendChild(s);
+    })();
+    </script>
+    -->
+</body>
+</html>
