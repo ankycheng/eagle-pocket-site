@@ -19,7 +19,7 @@
     <!-- Inter Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
 
     <!-- FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
@@ -58,21 +58,32 @@
             <h2>Frequently Asked Questions</h2>
 
             <h3>How do I open my Eagle library?</h3>
-            <p>Tap the library name in the top-left corner of the home screen, then tap <strong>Add Library</strong>. You can choose a library folder from your device's local storage, iCloud Drive, or a network share (such as a NAS).</p>
+            <p>Tap the library name in the top-left corner of the home screen, then tap <strong>Add Library</strong>. Use <strong>iOS Files</strong> to open a library from local storage, iCloud Drive, or a supported network/storage provider. These libraries may support editing and photo import when the provider allows writing.</p>
 
             <h3>How do I connect Google Drive?</h3>
-            <p>When adding a library, select <strong>Google Drive</strong> as the source. You will be prompted to sign in with your Google account and grant access. Eagle Pocket will then let you browse and select an Eagle library folder from your Drive.</p>
+            <p>When adding a library, select <strong>Google Drive</strong> as the source. Sign in and grant <strong>read-only</strong> Drive access. Eagle Pocket reads folder metadata so you can browse available folders, including <strong>Shared with me</strong>, or check a folder link and choose an Eagle <strong>.library</strong> folder. The permission is a broad Drive read permission, not a Google-enforced grant limited to the selected folder; library content is downloaded from the folder you select.</p>
+            <p>For a shared library, the actual folder must be accessible to the Google account you connect. A link alone does not grant access. The direct Google Drive integration does not upload, edit, move, or delete Drive files.</p>
+
+            <h3>Can I edit or import photos into a Google Drive library?</h3>
+            <p>Not through the direct Google Drive integration in the read-only release. Make changes with Eagle on your computer, allow the storage service to finish uploading them, then run a sync in Eagle Pocket. The changes appear after a successful sync; originals download when needed. Editing and import remain available for supported libraries opened through iOS Files, subject to provider permissions.</p>
+            <p>Earlier Eagle Pocket versions could request Google Drive write access for import or editing. The read-only release will not reuse detected older write authorization and may ask you to remove it and reconnect.</p>
 
             <h3>My library isn't syncing. What should I do?</h3>
             <ol>
                 <li>Open <strong>Settings</strong> and check the <strong>Sync</strong> status.</li>
-                <li>If the status shows an error, try tapping <strong>Sync Now… → Full Resync</strong>.</li>
-                <li>For Google Drive libraries, make sure you are still signed in under <strong>Settings → Google Account</strong>.</li>
-                <li>Ensure you have a stable internet connection.</li>
+                <li>Read the error shown under <strong>Settings → Sync</strong>. For Google Drive, check the connected account under <strong>Settings → Google Account</strong>; use <strong>Sign in to Google Drive</strong> or <strong>Reconnect Google Drive</strong> when needed.</li>
+                <li>Confirm that the account can open the actual library folder, and allow desktop uploads to finish. Ensure you have a stable internet connection.</li>
+                <li>After access or connectivity problems are resolved, use <strong>Sync Now… → Sync New &amp; Modified</strong>. Use <strong>Full Resync</strong> when you need to rebuild the local library from the source.</li>
+                <li>If Google blocks authorization or reports that the app is not approved for the account, reconnecting or a full resync cannot override that restriction. Contact support with the error message and app version, without sending credentials or private library files.</li>
             </ol>
+            <p>A failed or interrupted Google Drive sync should be treated as incomplete; wait for a successful sync before expecting desktop changes to appear.</p>
 
             <h3>How do I clear the cache?</h3>
-            <p>Go to <strong>Settings → Storage → Clear Cache</strong>. This removes all locally cached images. They will be re-downloaded as needed when you browse your library.</p>
+            <p><strong>Settings → Storage → Clear Cache</strong> attempts to remove active downloaded files and designated image caches; cleanup failures may leave local files. This does not clear all database records, Google authorization, or separate local recovery copies. For Google Drive, run a successful sync afterward to rebuild local metadata and file mappings before downloading originals again.</p>
+
+            <h3>What happens when I sign out, revoke access, or delete a library?</h3>
+            <p><strong>Sign Out</strong> ends the connected app session but retains downloaded library data. To revoke the Google authorization itself, remove Eagle Pocket in your <a href="https://myaccount.google.com/permissions">Google Account settings</a>. Revocation prevents subsequent authorized Drive access but does not delete copies already downloaded.</p>
+            <p><strong>Delete Library</strong> removes the library's app database record and attempts to remove its active local file cache; it does not delete the source folder or revoke Google authorization. Local recovery copies are currently retained separately without an automatic expiration or in-app purge, and neither Clear Cache nor Delete Library removes them. Deleting the app removes its local container; exported files and operating-system/provider backups may remain. See the <a href="../privacypolicy/">Privacy Policy</a> for details.</p>
 
             <hr>
 

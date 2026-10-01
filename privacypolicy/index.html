@@ -19,7 +19,7 @@
     <!-- Inter Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
 
     <!-- FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
@@ -54,16 +54,17 @@
     <div class="page-wrapper">
         <article class="page-content">
             <h1>Privacy Policy</h1>
-            <p><strong>Effective Date:</strong> March 12, 2026<br>
+            <p><strong>Effective Date:</strong> 2026-10-01<br>
             <strong>Application:</strong> Eagle Pocket (iOS)</p>
 
             <h2>Our Commitment to Your Privacy</h2>
-            <p>We are committed to protecting your privacy. Eagle Pocket was designed with privacy as a top priority. We minimize data access, do not operate any backend servers, and do not monetize user data.</p>
+            <p>The Eagle Pocket iOS Application processes your library data on your device. Its library synchronization does not route content through a developer-operated backend, and we do not sell your library data or use it for advertising. This policy describes this Application's data flow, not unrelated applications or services.</p>
             <p>The Application works with Eagle library folders located on your device or in your connected storage. Integration with Google Drive is entirely <strong>optional</strong> and used only if you choose to connect your Google account.</p>
+            <p>This policy describes the Google Drive <strong>read-only release</strong>. Earlier versions could request Drive write access for import or editing features; see the historical-version note in Section 2. Libraries opened through iOS Files may still support editing and photo import, subject to the storage provider's capabilities.</p>
 
             <hr>
 
-            <h2>1. Default Data Handling (All Users)</h2>
+            <h2>1. Libraries Opened Through iOS Files</h2>
             <p>By default, the Application works with Eagle library folders that you open through the iOS Files app.</p>
 
             <h3>Data Accessed</h3>
@@ -73,26 +74,30 @@
 
             <h3>Data Usage</h3>
             <ul>
-                <li>Accessed files and metadata are used solely for browsing, displaying, and synchronizing your Eagle library within the Application.</li>
+                <li>Files and metadata are used to browse, display, search, and synchronize your Eagle library. Library settings and browsing/search state may be stored locally to support these features.</li>
+                <li>When you initiate an edit, import, or item deletion in a supported Files library, the Application may write changes to the selected source library. Availability depends on the storage provider and its permissions. The direct Google Drive read-only integration is described separately in Section 2.</li>
             </ul>
 
             <h3>Data Sharing</h3>
             <ul>
-                <li>No data from these sources is ever transmitted to our servers.</li>
-                <li>No data is shared with third parties.</li>
-                <li>Transfers to or from network drives are handled entirely by the iOS system and the storage provider, not by the Application.</li>
+                <li>The Application does not send library content to a developer-operated backend.</li>
+                <li>Storage providers handle requests and transfers needed to open, synchronize, or write the files you select through iOS Files, under their own services and privacy practices.</li>
+                <li>If you explicitly use the iOS share or export feature, the selected file is provided to the destination you choose. Copies outside the Application are controlled by you and that destination.</li>
             </ul>
 
             <h3>Data Storage &amp; Protection</h3>
             <ul>
-                <li>Files and metadata are processed only within the secure environment of your device.</li>
-                <li>Any locally cached content or metadata remains in the Application's sandbox and is protected by standard iOS security mechanisms (sandboxing and device-level encryption).</li>
+                <li>The Application processes library files and metadata on your device and stores its local cache and imported database records in its app container.</li>
+                <li>The Application relies on standard iOS protections for its local container. Device and account security also depend on your settings and the storage provider; no absolute security guarantee is made.</li>
+                <li>App data may be included in device or cloud backups according to your iOS and backup-provider settings. The Application does not exclude all of its local data from operating-system backups.</li>
             </ul>
 
             <h3>Data Retention &amp; Deletion</h3>
             <ul>
-                <li>Cached data and metadata related to a selected library are stored locally only as needed for Application functionality.</li>
-                <li>This data is deleted when you uninstall the Application <strong>or when you delete the selected library from within the Application</strong>.</li>
+                <li>Local cache, imported metadata, library settings, and browsing/search state are retained to support Application functionality.</li>
+                <li><strong>Clear Cache</strong> attempts to remove active downloaded files and designated image caches; cleanup failures can leave local files. It does not delete all database records, authorization information, or every possible cache.</li>
+                <li><strong>Delete Library</strong> removes the library's Application database record and associated imported records and attempts to remove its active local file cache. It does not delete the original source library. File-cleanup failures can leave local copies.</li>
+                <li>Deleting the app, rather than merely offloading it, removes its local app container. Previously exported files and copies held in device, cloud, or storage-provider backups may remain and must be managed separately.</li>
             </ul>
 
             <p><strong>Note:</strong> The practices described in this section apply only when you use the Application with files accessed through the iOS Files app. If you choose to connect Google Drive, the data handling practices are described separately in <strong>Section 2. Optional Google Drive Integration</strong>.</p>
@@ -100,64 +105,67 @@
             <hr>
 
             <h2>2. Optional Google Drive Integration</h2>
-            <p>If you choose to connect your Google account, the Application may request the following scopes:</p>
+            <p>If you choose to connect your Google account, the read-only release uses Google Sign-In for authentication and requests the following additional Drive permission:</p>
             <ul>
-                <li><strong>drive.readonly</strong> — to view metadata and contents of files and folders in your Google Drive.</li>
-                <li><strong>drive</strong> (full access) — requested only when you choose to import photos into a Google Drive library. This scope allows the Application to upload new images and metadata to the Eagle library folder you selected. It is never requested unless you initiate an import action.</li>
+                <li><strong>https://www.googleapis.com/auth/drive.readonly</strong> — to read metadata and contents of files and folders accessible to your Google account. This is a broad Drive read permission, not a permission limited by Google to one selected folder.</li>
             </ul>
+            <p>The read-only release does not request Drive write permission and does not upload, edit, move, or delete files in Google Drive. Google's sign-in SDK also requests basic <strong>email</strong> and <strong>profile</strong> permissions for authentication; the Drive permission above is not the only OAuth permission involved in sign-in.</p>
+            <p><strong>Historical versions:</strong> Earlier releases could request <strong>https://www.googleapis.com/auth/drive</strong> for Google Drive import, editing, or deletion features. Those versions could write to the selected library. The read-only statements in this policy do not describe those older installed versions. The read-only release rejects detected older Drive write grants, attempts to remove that authorization, and may ask you to reconnect. If removal cannot complete, you can revoke Eagle Pocket in your Google Account settings before reconnecting.</p>
 
             <h3>Data Accessed</h3>
             <ul>
-                <li>Metadata of files and folders (names, IDs, structure), used to let you browse your Google Drive and select one Eagle library folder.</li>
-                <li>Contents of images and metadata files contained in the Eagle library folder you explicitly select, used to display and synchronize your Eagle library within the Application.</li>
-                <li>When you import photos, the Application writes new image files, thumbnails, and metadata to the Eagle library folder you selected on Google Drive.</li>
-                <li>Basic Google Account profile information returned as part of the OAuth authentication process. This is used only for the sign-in process and is not stored or otherwise processed by the Application.</li>
+                <li>Drive folder metadata, including names, IDs, and parent relationships, used to browse available folders and select or validate an Eagle library. Folder browsing can read metadata outside the library you later select.</li>
+                <li>Root and item metadata and thumbnails from the selected library, used for browsing, search, and one-way synchronization to this device. Original image or other item files are downloaded when needed for viewing or an action you initiate.</li>
+                <li>Basic Google sign-in/profile information processed by Google's SDK, which can include your email, name, and profile picture. The Application itself uses your email and account identifier on your device to show the connected account and validate the active synchronization session; it does not use this information for advertising.</li>
+                <li>Google's sign-in SDK manages received profile/session information and authorization credentials locally to support sign-in, session restoration, and authenticated requests. You can sign out without deleting downloaded library content.</li>
             </ul>
 
             <h3>Data Sharing</h3>
             <ul>
-                <li>Google Drive data is never shared with third parties.</li>
-                <li>The Application does not transmit data to our servers (we operate no backend).</li>
-                <li>All data remains on your device and under your control.</li>
+                <li>Your device communicates directly with Google over HTTPS for authentication and Drive requests. Library data is not routed through an Eagle Pocket synchronization server.</li>
+                <li>The Application does not automatically transfer Drive library content to advertising, analytics, or AI services, and we do not sell Google user data.</li>
+                <li>If you explicitly use the iOS share or export feature, the selected downloaded file is provided to the destination you choose. Copies you export, or voluntarily provide when contacting support, are outside the Application's local cache and cannot be removed by its cache controls.</li>
             </ul>
 
             <h3>Data Storage &amp; Protection</h3>
             <ul>
-                <li>Accessed data is processed <strong>locally on your device</strong> only.</li>
-                <li>To provide core functionality, the Application creates a <strong>local cache of image files</strong> from the selected Google Drive folder and <strong>imports associated metadata into an on-device database</strong> within the Application's sandbox.</li>
-                <li>Cached copies and database records are used solely to display and synchronize your library and are <strong>never uploaded to our servers</strong>.</li>
-                <li>When you import photos, the Application uploads new files <strong>only to the Eagle library folder you selected</strong> on Google Drive. It does not modify or delete existing files outside of this folder.</li>
-                <li>Standard iOS security mechanisms (sandboxing and device-level encryption) protect locally stored data.</li>
+                <li>The Application stores downloaded metadata, thumbnails, originals, file-ID mappings, and imported database records in its local app container to provide library features.</li>
+                <li>During migration or synchronization, the Application can retain previous metadata and replaced or removed cached files in a separate <strong>local recovery area</strong> to reduce the risk of losing local work. These copies are not uploaded to an Eagle Pocket server.</li>
+                <li>The Application relies on standard iOS protections for its local container rather than making an absolute security or app-specific encryption guarantee.</li>
+                <li>Local files, database records, and recovery copies may be included in device or cloud backups according to your operating-system and backup-provider settings. This does not change the read-only behavior of the direct Google Drive integration.</li>
             </ul>
 
             <h3>Data Retention &amp; Deletion</h3>
             <ul>
-                <li>Google Drive data is cached locally only as needed for Application functionality.</li>
-                <li>Cached images and imported metadata related to a library are deleted when you uninstall the Application <strong>or when you delete the selected library from within the Application</strong>.</li>
-                <li>No data is retained on our servers.</li>
-                <li>You may revoke the Application's access at any time via your <a href="https://myaccount.google.com/permissions">Google Account settings</a>. This will immediately prevent further access to your Google Drive data.</li>
+                <li>Active downloaded files, imported metadata, settings, and browsing/search state are retained locally for Application functionality. Signing out or a failed sign-in does not delete these copies.</li>
+                <li><strong>Clear Cache</strong> attempts to remove active downloaded files and designated image caches; cleanup failures can leave local files. It does not clear the imported database, sign-in authorization, or the separate local recovery area. A successful sync may be needed to rebuild downloaded metadata and file mappings before originals can be downloaded again.</li>
+                <li><strong>Delete Library</strong> removes the library's Application database record and associated imported records and attempts to remove its active file cache. It does not revoke Google authorization or remove source files from Drive; cleanup errors can leave local files.</li>
+                <li><strong>Recovery copies are not cleared by Clear Cache or Delete Library.</strong> They currently have no automatic expiration or in-app purge control and may remain in the app container until you delete the app. Do not treat either control as complete deletion of all Google-derived local data.</li>
+                <li>Deleting the app removes its local app container, but does not delete files you exported, data still in Google Drive, or copies in operating-system or provider backups. Backup copies may persist or be restored according to those services and your settings.</li>
+                <li>The Application does not retain your Drive library on a developer-operated backend. Google's sign-in SDK manages local session credentials; app removal is not a substitute for revoking Google's authorization.</li>
+                <li><strong>Sign Out</strong> ends the app's connected session; it does not revoke the grant in your Google Account. You may revoke Eagle Pocket's authorization via your <a href="https://myaccount.google.com/permissions">Google Account settings</a> to stop subsequent authorized Drive access. Revocation does not remove content already downloaded, recovery copies, exported files, or backup copies.</li>
             </ul>
 
             <hr>
 
             <h2>3. Analytics and Crash Reports</h2>
-            <p>The Application does not include third-party analytics or crash reporting tools.<br>
-            If you opt in through iOS system settings, Apple may provide anonymized, aggregated crash reports. These reports cannot be used to personally identify you.</p>
+            <p>Eagle Pocket does not include a separate third-party analytics or crash-reporting integration for library content. Depending on your iOS diagnostic settings, Apple may collect or provide diagnostic reports under its own platform policies. Review the data you choose to include when contacting support. Never send passwords or authorization credentials. Include private library files only if you intentionally want to share them.</p>
 
             <hr>
 
             <h2>4. Third-Party Services</h2>
-            <p>The Application integrates only with:</p>
+            <p>Services involved in the features you choose can include:</p>
             <ul>
-                <li><strong>Google Drive (via Google APIs)</strong> – optional, used only if you connect your Google account.</li>
+                <li><strong>Google Sign-In and Google Drive APIs</strong> — optional authentication and direct read-only Drive access.</li>
+                <li><strong>iOS Files and your selected storage provider</strong> — access and, where supported, writing to selected Files libraries.</li>
+                <li><strong>iOS sharing, diagnostics, and backup services</strong> — used according to your explicit actions or operating-system settings and the relevant provider's policies.</li>
             </ul>
             <p>Our use and transfer of information received from Google APIs will adhere to the <a href="https://developers.google.com/terms/api-services-user-data-policy">Google API Services User Data Policy</a>, including the <strong>Limited Use requirements</strong>.</p>
 
             <hr>
 
             <h2>5. Children's Privacy</h2>
-            <p>We do not knowingly collect any personal information from children under the age of 13.<br>
-            Since the Application does not collect personal information, it is safe for use by people of all ages.</p>
+            <p>Connecting a Google account is optional and is subject to Google's account eligibility requirements. We do not knowingly seek personal information from children under 13. If you are a parent or guardian and believe a child has provided personal information to us, please contact us using the address below.</p>
 
             <hr>
 
