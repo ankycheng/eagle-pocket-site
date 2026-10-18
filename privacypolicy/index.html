@@ -54,7 +54,7 @@
     <div class="page-wrapper">
         <article class="page-content">
             <h1>Privacy Policy</h1>
-            <p><strong>Effective Date:</strong> 2026-10-01<br>
+            <p><strong>Effective Date:</strong> 2026-10-18<br>
             <strong>Application:</strong> Eagle Pocket (iOS)</p>
 
             <h2>Our Commitment to Your Privacy</h2>
@@ -130,7 +130,8 @@
             <h3>Data Storage &amp; Protection</h3>
             <ul>
                 <li>The Application stores downloaded metadata, thumbnails, originals, file-ID mappings, and imported database records in its local app container to provide library features.</li>
-                <li>During migration or synchronization, the Application can retain previous metadata and replaced or removed cached files in a separate <strong>local recovery area</strong> to reduce the risk of losing local work. These copies are not uploaded to an Eagle Pocket server.</li>
+                <li>Earlier installed versions or migration builds may have left separate <strong>local recovery copies</strong>. Those existing copies may remain in the app container; this release does not create a separate recovery archive during synchronization. Recovery copies are not uploaded to an Eagle Pocket server.</li>
+                <li>Local changes left pending by an earlier write-enabled version are retained for affected items during synchronization. This read-only release does not upload those changes to Google Drive.</li>
                 <li>The Application relies on standard iOS protections for its local container rather than making an absolute security or app-specific encryption guarantee.</li>
                 <li>Local files, database records, and recovery copies may be included in device or cloud backups according to your operating-system and backup-provider settings. This does not change the read-only behavior of the direct Google Drive integration.</li>
             </ul>
@@ -138,9 +139,10 @@
             <h3>Data Retention &amp; Deletion</h3>
             <ul>
                 <li>Active downloaded files, imported metadata, settings, and browsing/search state are retained locally for Application functionality. Signing out or a failed sign-in does not delete these copies.</li>
-                <li><strong>Clear Cache</strong> attempts to remove active downloaded files and designated image caches; cleanup failures can leave local files. It does not clear the imported database, sign-in authorization, or the separate local recovery area. A successful sync may be needed to rebuild downloaded metadata and file mappings before originals can be downloaded again.</li>
+                <li><strong>Clear Cache</strong> attempts to remove active downloaded files and designated image caches; cleanup failures can leave local files. It does not clear the imported database, sign-in authorization, or separate recovery copies left by earlier versions. Cache clearing is blocked when recorded pending Google Drive changes exist, to protect local work. A successful sync may be needed to rebuild downloaded metadata and file mappings before originals can be downloaded again.</li>
                 <li><strong>Delete Library</strong> removes the library's Application database record and associated imported records and attempts to remove its active file cache. It does not revoke Google authorization or remove source files from Drive; cleanup errors can leave local files.</li>
-                <li><strong>Recovery copies are not cleared by Clear Cache or Delete Library.</strong> They currently have no automatic expiration or in-app purge control and may remain in the app container until you delete the app. Do not treat either control as complete deletion of all Google-derived local data.</li>
+                <li><strong>Existing recovery copies from earlier versions are not cleared by Clear Cache or Delete Library.</strong> This release provides no automatic expiration or in-app purge for those copies; they may remain in the app container until you delete the app. Do not treat either control as complete deletion of all Google-derived local data.</li>
+                <li>Save any unsynced local work from an earlier version before deleting a library or the app. Deleting a library removes its associated local records and attempts to remove its active file cache; this read-only release cannot first upload pending changes to Drive.</li>
                 <li>Deleting the app removes its local app container, but does not delete files you exported, data still in Google Drive, or copies in operating-system or provider backups. Backup copies may persist or be restored according to those services and your settings.</li>
                 <li>The Application does not retain your Drive library on a developer-operated backend. Google's sign-in SDK manages local session credentials; app removal is not a substitute for revoking Google's authorization.</li>
                 <li><strong>Sign Out</strong> ends the app's connected session; it does not revoke the grant in your Google Account. You may revoke Eagle Pocket's authorization via your <a href="https://myaccount.google.com/permissions">Google Account settings</a> to stop subsequent authorized Drive access. Revocation does not remove content already downloaded, recovery copies, exported files, or backup copies.</li>
